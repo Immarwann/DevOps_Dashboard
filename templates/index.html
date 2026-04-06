@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="5">
+    <title>DevOps Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0d1117;
+            color: #e6edf3;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #161b22;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            font-size: 20px;
+        }
+
+        .value {
+            font-size: 28px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .sub {
+            margin-top: 10px;
+            color: #9da7b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>DevOps Dashboard</h1>
+
+    <div class="grid">
+        <div class="card">
+            <h2>Hostname</h2>
+            <div class="value">{{ data.hostname }}</div>
+        </div>
+
+        <div class="card">
+            <h2>CPU Usage</h2>
+            <div class="value">{{ data.cpu_percent }}%</div>
+        </div>
+
+        <div class="card">
+            <h2>Memory Usage</h2>
+            <div class="value">{{ data.memory_percent }}%</div>
+            <div class="sub">{{ data.memory_used }} GB / {{ data.memory_total }} GB</div>
+        </div>
+
+        <div class="card">
+            <h2>Disk Usage</h2>
+            <div class="value">{{ data.disk_percent }}%</div>
+            <div class="sub">{{ data.disk_used }} GB / {{ data.disk_total }} GB</div>
+        </div>
+
+        <div class="card">
+            <h2>System Uptime</h2>
+            <div class="value">{{ data.uptime }}</div>
+        </div>
+    </div>
+</body>
+</html>
